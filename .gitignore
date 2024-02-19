@@ -45,6 +45,7 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 *.ipynb
-#.vscode/
+.vscode/
 .DS_Store
 *.csv
+#*.drawio
