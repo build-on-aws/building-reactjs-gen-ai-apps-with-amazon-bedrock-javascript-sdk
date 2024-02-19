@@ -1,6 +1,6 @@
 # Building Reactjs generative AI apps with Amazon Bedrock Javascript SDK
 
-Lately, in our continued learning about how to create applications using generative AI, we have been experimenting with conversational agents and have developed an application that can directly query the [Amazon Bedrock API ](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) using React and JavaScript, with no any additional layers. 
+In our continued learning about how to create applications using generative AI, we have been experimenting with conversational agents and have developed an application that can directly query the [Amazon Bedrock API ](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) using React and JavaScript, with no any additional layers. 
 
 This blog will teach you how to use [Amazon Cognito](https://aws.amazon.com/pm/cognito/) credentials to access the [Amazon Bedrock](https://aws.amazon.com/bedrock/) API in a react-based application with JavaScript and the CloudScape design system. Built and deployed using [AWS Amplify](https://aws.amazon.com/amplify/).
 
@@ -41,7 +41,7 @@ export const getModel = async () => {
 };
 ```
 
-> **Code** --> [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/src/llmLib.js)
+> **Code** --> [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/llmLib.js)
 
 We'll walk you through each demo group to highlight their differences.
 
@@ -103,7 +103,7 @@ export const getBedrockKnowledgeBases = async () => {
     return response.knowledgeBaseSummaries
 }
 ```
-The [AmazonKnowledgeBaseRetriever](https://js.langchain.com/docs/integrations/retrievers/bedrock-knowledge-bases) Langchain class retrieves information from the knowledge base, providing `topK` answers. 
+The [AmazonKnowledgeBaseRetriever](https://js.langchain.com/docs/integrations/retrievers/bedrock-knowledge-bases) Langchain class retrieves information from the knowledge base, from the `topK` tokens. 
 
 ```Javascript
 import { AmazonKnowledgeBaseRetriever } from "@langchain/community/retrievers/amazon_knowledge_base";
@@ -188,11 +188,30 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query)
 
 The application is built with [AWS Amplify](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html), and to deploy it in your account associate the repo with your GitHub account to be able to connect it to Amplify and launch the application, for that [fork](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repo: 
 
+
 ```
 https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/forks
 ```
 
-so you need to follow the steps in [Getting started with existing code guide](https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html). 
+Then follow the steps in [Getting started with existing code guide](https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html). 
+
+In **Step 1 Add repository branch**, select main branch and **Connecting a monorepo? Pick a folder** and enter `reactjs-gen-ai-apps` as a root directory.
+
+![Add repository branch](imagenes/repository_branch.jpg)
+
+For the next Step, **Build settings**, select `building-a-gen-ai-gen-ai-personal-assistant-reactjs-apps(this app)` as App name, in Enviroment select **Create a new envitoment** and write `dev`
+
+![App build and test settings](imagenes/build_settings.jpg)
+
+If there is no existing role, create a new one to service Amplify.
+
+![Create Role](imagenes/create_role.jpg)
+
+In the case of creating a new role, select **Amplify** as a service and select **Amplify - Backend Deployment**.
+
+
+![Select trusted entity](imagenes/role_amplify.jpg)
+
 
  
 

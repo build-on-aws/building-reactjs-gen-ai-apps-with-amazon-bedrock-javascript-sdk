@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "LLMCHATBOTJS",
+  "projectName": "bedrockjavascript",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
