@@ -48,4 +48,4 @@ amplifytools.xcconfig
 .vscode/
 .DS_Store
 *.csv
-#*.drawio
+*.drawio
