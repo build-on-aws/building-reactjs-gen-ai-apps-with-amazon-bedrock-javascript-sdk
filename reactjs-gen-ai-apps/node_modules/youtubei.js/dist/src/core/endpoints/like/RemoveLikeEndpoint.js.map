@@ -1,0 +1,1 @@
+{"version":3,"file":"RemoveLikeEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/like/RemoveLikeEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,kBAAkB,CAAC;AAEvC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAAkC;IACtD,uBACE,MAAM,EAAE;YACN,OAAO,EAAE,OAAO,CAAC,MAAM,CAAC,QAAQ;SACjC,IACE;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}

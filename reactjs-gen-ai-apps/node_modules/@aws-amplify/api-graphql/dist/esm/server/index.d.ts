@@ -1,0 +1,1 @@
+export { generateClient } from './generateClient';

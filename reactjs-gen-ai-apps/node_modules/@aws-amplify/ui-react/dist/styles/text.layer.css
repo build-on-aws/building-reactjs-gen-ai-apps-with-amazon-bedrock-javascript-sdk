@@ -1,0 +1,42 @@
+@layer amplify.components {
+.amplify-text {
+  display: block;
+  color: var(--amplify-components-text-color);
+}
+b.amplify-text,
+em.amplify-text,
+i.amplify-text,
+span.amplify-text,
+strong.amplify-text {
+  display: inline;
+}
+
+.amplify-text--truncated {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.amplify-text--primary {
+  color: var(--amplify-components-text-primary-color);
+}
+.amplify-text--secondary {
+  color: var(--amplify-components-text-secondary-color);
+}
+.amplify-text--tertiary {
+  color: var(--amplify-components-text-tertiary-color);
+}
+.amplify-text--error {
+  color: var(--amplify-components-text-error-color);
+}
+.amplify-text--info {
+  color: var(--amplify-components-text-info-color);
+}
+.amplify-text--success {
+  color: var(--amplify-components-text-success-color);
+}
+.amplify-text--warning {
+  color: var(--amplify-components-text-warning-color);
+}
+}

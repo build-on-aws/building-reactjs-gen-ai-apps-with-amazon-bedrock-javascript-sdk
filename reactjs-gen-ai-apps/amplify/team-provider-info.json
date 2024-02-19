@@ -1,0 +1,50 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-llmchatbotjs-staging-122952-authRole",
+      "UnauthRoleArn": "arn:aws:iam::111712977002:role/amplify-llmchatbotjs-staging-122952-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::111712977002:role/amplify-llmchatbotjs-staging-122952-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-llmchatbotjs-staging-122952-deployment",
+      "UnauthRoleName": "amplify-llmchatbotjs-staging-122952-unauthRole",
+      "StackName": "amplify-llmchatbotjs-staging-122952",
+      "StackId": "arn:aws:cloudformation:us-east-1:111712977002:stack/amplify-llmchatbotjs-staging-122952/ec90e120-c746-11ee-be75-0e56484e04dd",
+      "AmplifyAppId": "du5ec2xavg2ar"
+    },
+    "categories": {
+      "auth": {
+        "llmchatbotjs6f7265086f726508": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "du5ec2xavg2ar",
+          "type": "manual"
+        }
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-llmchatbotjs-dev-114530-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891377009465:role/amplify-llmchatbotjs-dev-114530-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891377009465:role/amplify-llmchatbotjs-dev-114530-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-llmchatbotjs-dev-114530-deployment",
+      "UnauthRoleName": "amplify-llmchatbotjs-dev-114530-unauthRole",
+      "StackName": "amplify-llmchatbotjs-dev-114530",
+      "StackId": "arn:aws:cloudformation:us-east-1:891377009465:stack/amplify-llmchatbotjs-dev-114530/dfd2eef0-cc10-11ee-a525-0efc92db4a2d",
+      "AmplifyAppId": "d374w2izf21zcf"
+    },
+    "categories": {
+      "auth": {
+        "llmchatbotjs6f7265086f726508": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d374w2izf21zcf",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

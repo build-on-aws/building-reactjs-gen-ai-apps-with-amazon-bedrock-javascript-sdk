@@ -1,0 +1,5 @@
+@layer amplify.components {
+.amplify-grid {
+  display: grid;
+}
+}

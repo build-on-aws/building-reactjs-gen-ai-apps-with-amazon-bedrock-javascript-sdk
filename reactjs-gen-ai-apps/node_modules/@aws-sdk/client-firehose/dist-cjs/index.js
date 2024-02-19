@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FirehoseServiceException = void 0;
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./FirehoseClient"), exports);
+tslib_1.__exportStar(require("./Firehose"), exports);
+tslib_1.__exportStar(require("./commands"), exports);
+tslib_1.__exportStar(require("./models"), exports);
+var FirehoseServiceException_1 = require("./models/FirehoseServiceException");
+Object.defineProperty(exports, "FirehoseServiceException", { enumerable: true, get: function () { return FirehoseServiceException_1.FirehoseServiceException; } });

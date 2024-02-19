@@ -1,0 +1,1 @@
+{"version":3,"file":"EditNameEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/channel/EditNameEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,oBAAoB,CAAC;AAEzC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAAuC;IAC3D,OAAO;QACL,SAAS,EAAE,OAAO,CAAC,UAAU;QAC7B,MAAM,EAAE,SAAS;KAClB,CAAC;AACJ,CAAC"}

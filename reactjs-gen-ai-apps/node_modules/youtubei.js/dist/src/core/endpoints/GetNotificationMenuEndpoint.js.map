@@ -1,0 +1,1 @@
+{"version":3,"file":"GetNotificationMenuEndpoint.js","sourceRoot":"","sources":["../../../../src/core/endpoints/GetNotificationMenuEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,qCAAqC,CAAC;AAE1D;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,IAAwC;IAC5D,qBACK;QACD,4BAA4B,EAAE,IAAI,CAAC,+BAA+B;KACnE,EACD;AACJ,CAAC"}

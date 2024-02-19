@@ -1,0 +1,8 @@
+import type { IBrowseRequest, BrowseEndpointOptions } from '../../types/index.js';
+export declare const PATH = "/browse";
+/**
+ * Builds a `/browse` request payload.
+ * @param opts - The options to use.
+ * @returns The payload.
+ */
+export declare function build(opts: BrowseEndpointOptions): IBrowseRequest;

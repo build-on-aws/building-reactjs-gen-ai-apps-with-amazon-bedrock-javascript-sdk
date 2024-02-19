@@ -1,0 +1,22 @@
+import { AnyStateMachine, AreAllImplementationsAssumedToBeProvided, EventObject, InternalMachineOptions, InterpreterFrom, InterpreterOptions, StateConfig, StateFrom } from 'xstate';
+import { MaybeLazy, Prop } from './types';
+export interface UseMachineOptions<TContext, TEvent extends EventObject> {
+    /**
+     * If provided, will be merged with machine's `context`.
+     */
+    context?: Partial<TContext>;
+    /**
+     * The state to rehydrate the machine to. The machine will
+     * start at this state instead of its `initialState`.
+     */
+    state?: StateConfig<TContext, TEvent>;
+}
+declare type RestParams<TMachine extends AnyStateMachine> = AreAllImplementationsAssumedToBeProvided<TMachine['__TResolvedTypesMeta']> extends false ? [
+    options: InterpreterOptions & UseMachineOptions<TMachine['__TContext'], TMachine['__TEvent']> & InternalMachineOptions<TMachine['__TContext'], TMachine['__TEvent'], TMachine['__TResolvedTypesMeta'], true>
+] : [
+    options?: InterpreterOptions & UseMachineOptions<TMachine['__TContext'], TMachine['__TEvent']> & InternalMachineOptions<TMachine['__TContext'], TMachine['__TEvent'], TMachine['__TResolvedTypesMeta']>
+];
+declare type UseMachineReturn<TMachine extends AnyStateMachine, TInterpreter = InterpreterFrom<TMachine>> = [StateFrom<TMachine>, Prop<TInterpreter, 'send'>, TInterpreter];
+export declare function useMachine<TMachine extends AnyStateMachine>(getMachine: MaybeLazy<TMachine>, ...[options]: RestParams<TMachine>): UseMachineReturn<TMachine>;
+export {};
+//# sourceMappingURL=useMachine.d.ts.map

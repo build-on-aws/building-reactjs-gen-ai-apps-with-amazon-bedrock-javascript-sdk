@@ -1,0 +1,1 @@
+export { generateClientWithAmplifyInstance } from './generateClientWithAmplifyInstance';

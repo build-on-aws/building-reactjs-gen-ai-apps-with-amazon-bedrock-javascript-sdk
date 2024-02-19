@@ -1,0 +1,74 @@
+@layer amplify.components {
+/* Center by default */
+[data-amplify-authenticator] {
+  display: grid;
+}
+[data-amplify-authenticator][data-variation=modal] {
+  overflow-y: auto;
+  width: var(--amplify-components-authenticator-modal-width);
+  height: var(--amplify-components-authenticator-modal-height);
+  background-color: var(--amplify-components-authenticator-modal-background-color);
+  position: fixed;
+  top: var(--amplify-components-authenticator-modal-top);
+  left: var(--amplify-components-authenticator-modal-left);
+  /* Having a z-index at least "wins" by default */
+  z-index: 1;
+}
+[data-amplify-authenticator] [data-amplify-container] {
+  place-self: center;
+}
+@media (min-width: 30rem) {
+  [data-amplify-authenticator] [data-amplify-container] {
+    width: var(--amplify-components-authenticator-container-width-max);
+  }
+}
+[data-amplify-authenticator] [data-amplify-router] {
+  background-color: var(--amplify-components-authenticator-router-background-color);
+  box-shadow: var(--amplify-components-authenticator-router-box-shadow);
+  border-color: var(--amplify-components-authenticator-router-border-color);
+  border-width: var(--amplify-components-authenticator-router-border-width);
+  border-style: var(--amplify-components-authenticator-router-border-style);
+}
+[data-amplify-authenticator] [data-amplify-footer] {
+  padding-bottom: var(--amplify-components-authenticator-footer-padding-bottom);
+  text-align: center;
+}
+[data-amplify-authenticator] [data-amplify-form] {
+  padding: var(--amplify-components-authenticator-form-padding);
+}
+[data-amplify-authenticator] [data-state=inactive] {
+  background-color: var(--amplify-components-authenticator-state-inactive-background-color);
+}
+@media (max-width: 26rem) {
+  [data-amplify-authenticator] [data-amplify-sign-up-errors] {
+    font-size: 0.688rem;
+  }
+}
+
+.amplify-authenticator__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.amplify-authenticator__subtitle {
+  margin-bottom: var(--amplify-space-medium);
+}
+
+.amplify-authenticator__heading {
+  font-size: var(--amplify-font-sizes-xl);
+}
+
+.amplify-authenticator__federated-text {
+  align-self: center;
+}
+
+.amplify-authenticator__federated-buttons {
+  flex-direction: column;
+  padding-block-end: var(--amplify-space-medium);
+}
+
+.amplify-authenticator__federated-button {
+  font-weight: normal;
+  gap: var(--amplify-space-medium);
+}
+}

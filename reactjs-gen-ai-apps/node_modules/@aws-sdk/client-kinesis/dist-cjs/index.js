@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.KinesisServiceException = void 0;
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./KinesisClient"), exports);
+tslib_1.__exportStar(require("./Kinesis"), exports);
+tslib_1.__exportStar(require("./commands"), exports);
+tslib_1.__exportStar(require("./pagination"), exports);
+tslib_1.__exportStar(require("./waiters"), exports);
+tslib_1.__exportStar(require("./models"), exports);
+var KinesisServiceException_1 = require("./models/KinesisServiceException");
+Object.defineProperty(exports, "KinesisServiceException", { enumerable: true, get: function () { return KinesisServiceException_1.KinesisServiceException; } });

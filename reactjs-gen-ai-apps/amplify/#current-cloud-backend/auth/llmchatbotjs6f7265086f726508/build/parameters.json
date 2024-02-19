@@ -1,0 +1,69 @@
+{
+  "identityPoolName": "llmchatbotjs6f726508_identitypool_6f726508",
+  "allowUnauthenticatedIdentities": false,
+  "resourceNameTruncated": "llmcha6f726508",
+  "userPoolName": "llmchatbotjs6f726508_userpool_6f726508",
+  "autoVerifiedAttributes": [
+    "email"
+  ],
+  "mfaConfiguration": "OFF",
+  "mfaTypes": [
+    "SMS Text Message"
+  ],
+  "smsAuthenticationMessage": "Your authentication code is {####}",
+  "smsVerificationMessage": "Your verification code is {####}",
+  "emailVerificationSubject": "Your verification code",
+  "emailVerificationMessage": "Your verification code is {####}",
+  "defaultPasswordPolicy": true,
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [
+    "Requires Lowercase",
+    "Requires Uppercase",
+    "Requires Numbers",
+    "Requires Symbols"
+  ],
+  "requiredAttributes": [
+    "email"
+  ],
+  "aliasAttributes": [],
+  "userpoolClientGenerateSecret": false,
+  "userpoolClientRefreshTokenValidity": "365",
+  "userpoolClientWriteAttributes": [
+    "email"
+  ],
+  "userpoolClientReadAttributes": [
+    "email"
+  ],
+  "userpoolClientLambdaRole": "llmcha6f726508_userpoolclient_lambda_role",
+  "userpoolClientSetAttributes": false,
+  "sharedId": "6f726508",
+  "resourceName": "llmchatbotjs6f7265086f726508",
+  "authSelections": "identityPoolAndUserPool",
+  "useDefault": "manual",
+  "thirdPartyAuth": false,
+  "usernameAttributes": [
+    "email"
+  ],
+  "userPoolGroups": false,
+  "adminQueries": false,
+  "triggers": "{}",
+  "hostedUI": false,
+  "userPoolGroupList": [],
+  "serviceName": "Cognito",
+  "usernameCaseSensitive": false,
+  "useEnabledMfas": true,
+  "authRoleArn": {
+    "Fn::GetAtt": [
+      "AuthRole",
+      "Arn"
+    ]
+  },
+  "unauthRoleArn": {
+    "Fn::GetAtt": [
+      "UnauthRole",
+      "Arn"
+    ]
+  },
+  "breakCircularDependency": true,
+  "dependsOn": []
+}

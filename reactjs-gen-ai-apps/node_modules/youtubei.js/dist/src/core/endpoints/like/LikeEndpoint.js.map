@@ -1,0 +1,1 @@
+{"version":3,"file":"LikeEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/like/LikeEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,YAAY,CAAC;AAEjC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAA4B;IAChD,uBACE,MAAM,EAAE;YACN,OAAO,EAAE,OAAO,CAAC,MAAM,CAAC,QAAQ;SACjC,IACE;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}

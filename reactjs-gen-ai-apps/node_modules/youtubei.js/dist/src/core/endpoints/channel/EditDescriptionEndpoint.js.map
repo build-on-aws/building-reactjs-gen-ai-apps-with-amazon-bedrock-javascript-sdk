@@ -1,0 +1,1 @@
+{"version":3,"file":"EditDescriptionEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/channel/EditDescriptionEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,2BAA2B,CAAC;AAEhD;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAA8C;IAClE,OAAO;QACL,gBAAgB,EAAE,OAAO,CAAC,iBAAiB;QAC3C,MAAM,EAAE,SAAS;KAClB,CAAC;AACJ,CAAC"}

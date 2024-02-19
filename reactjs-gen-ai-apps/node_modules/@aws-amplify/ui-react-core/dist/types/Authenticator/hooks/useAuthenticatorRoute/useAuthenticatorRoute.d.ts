@@ -1,0 +1,11 @@
+import { UseAuthenticatorRoute, UseAuthenticatorRouteParams } from './types';
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ConfirmResetPassword'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ConfirmSignIn'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ConfirmSignUp'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ConfirmVerifyUser'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ForceNewPassword'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'ForgotPassword'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'SetupTotp'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'SignIn'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'SignUp'>;
+export default function useAuthenticatorRoute<FieldType>(params: UseAuthenticatorRouteParams<FieldType>): UseAuthenticatorRoute<'VerifyUser'>;

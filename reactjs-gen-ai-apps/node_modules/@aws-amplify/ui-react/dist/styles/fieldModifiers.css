@@ -1,0 +1,15 @@
+.amplify-label-start {
+  flex-direction: row;
+}
+
+.amplify-label-end {
+  flex-direction: row-reverse;
+}
+
+.amplify-label-top {
+  flex-direction: column;
+}
+
+.amplify-label-bottom {
+  flex-direction: column-reverse;
+}

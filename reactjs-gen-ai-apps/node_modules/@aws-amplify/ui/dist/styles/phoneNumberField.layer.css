@@ -1,0 +1,32 @@
+@layer amplify.components {
+.amplify-phonenumberfield select:not(:focus) {
+  border-right: none;
+}
+
+.amplify-phonenumberfield {
+  --amplify-components-selectfield-color: var(
+    --amplify-components-phonenumberfield-color
+  );
+  --amplify-components-selectfield-border-color: var(
+    --amplify-components-phonenumberfield-border-color
+  );
+  --amplify-components-selectfield-font-size: var(
+    --amplify-components-phonenumberfield-font-size
+  );
+  --amplify-components-selectfield-focus-border-color: var(
+    --amplify-components-phonenumberfield-focus-border-color
+  );
+  --amplify-components-textfield-color: var(
+    --amplify-components-phonenumberfield-color
+  );
+  --amplify-components-textfield-border-color: var(
+    --amplify-components-phonenumberfield-border-color
+  );
+  --amplify-components-textfield-font-size: var(
+    --amplify-components-phonenumberfield-font-size
+  );
+  --amplify-components-textfield-focus-border-color: var(
+    --amplify-components-phonenumberfield-focus-border-color
+  );
+}
+}

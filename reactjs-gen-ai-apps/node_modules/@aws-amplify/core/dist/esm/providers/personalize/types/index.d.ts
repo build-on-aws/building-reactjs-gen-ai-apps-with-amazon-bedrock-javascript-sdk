@@ -1,0 +1,1 @@
+export { PersonalizeProviderConfig } from './personalize';

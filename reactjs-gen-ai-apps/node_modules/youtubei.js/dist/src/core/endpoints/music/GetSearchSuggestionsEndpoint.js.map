@@ -1,0 +1,1 @@
+{"version":3,"file":"GetSearchSuggestionsEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/music/GetSearchSuggestionsEndpoint.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,MAAM,IAAI,GAAG,+BAA+B,CAAC;AAEpD;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,IAA8C;IAClE,OAAO;QACL,KAAK,EAAE,IAAI,CAAC,KAAK;QACjB,MAAM,EAAE,SAAS;KAClB,CAAC;AACJ,CAAC"}

@@ -1,0 +1,11 @@
+@layer amplify.components {
+.amplify-image {
+  height: var(--amplify-components-image-height);
+  max-width: var(--amplify-components-image-max-width);
+  -o-object-fit: var(--amplify-components-image-object-fit);
+     object-fit: var(--amplify-components-image-object-fit);
+  -o-object-position: var(--amplify-components-image-object-position);
+     object-position: var(--amplify-components-image-object-position);
+  overflow: clip;
+}
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"isAppInForeground.mjs","sources":["../../../../../src/providers/pinpoint/utils/isAppInForeground.ts"],"sourcesContent":["// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\nexport const isAppInForeground = () => true;\n"],"names":[],"mappings":"AAAA;AACA;AACY,MAAC,iBAAiB,GAAG,MAAM;;;;"}

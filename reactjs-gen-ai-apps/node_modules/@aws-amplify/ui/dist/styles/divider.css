@@ -1,0 +1,47 @@
+.amplify-divider {
+  --amplify-internal-divider-size: var(
+    --amplify-components-divider-border-width
+  );
+  border-color: var(--amplify-components-divider-border-color);
+  border-style: var(--amplify-components-divider-border-style);
+  border-width: 0;
+  opacity: var(--amplify-components-divider-opacity);
+  padding: 0;
+  display: flex;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+}
+.amplify-divider::after {
+  content: attr(data-label);
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: var(--amplify-components-divider-label-font-size);
+  padding-inline: var(--amplify-components-divider-label-padding-inline);
+  background-color: var(--amplify-components-divider-label-background-color);
+  color: var(--amplify-components-divider-label-color);
+}
+.amplify-divider--small {
+  --amplify-internal-divider-size: var(
+    --amplify-components-divider-small-border-width
+  );
+}
+.amplify-divider--large {
+  --amplify-internal-divider-size: var(
+    --amplify-components-divider-large-border-width
+  );
+}
+.amplify-divider--horizontal {
+  width: 100%;
+  border-bottom-width: var(--amplify-internal-divider-size);
+}
+.amplify-divider--vertical {
+  border-left-width: var(--amplify-internal-divider-size);
+  flex-direction: column;
+}
+.amplify-divider--vertical::after {
+  top: auto;
+  transform: translateX(-50%);
+  padding-block: 0;
+  padding-inline: 0;
+}

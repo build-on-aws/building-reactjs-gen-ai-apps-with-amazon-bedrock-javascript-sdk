@@ -1,0 +1,1 @@
+export { createKeyValueStorageFromCookieStorageAdapter } from './createKeyValueStorageFromCookieStorageAdapter';

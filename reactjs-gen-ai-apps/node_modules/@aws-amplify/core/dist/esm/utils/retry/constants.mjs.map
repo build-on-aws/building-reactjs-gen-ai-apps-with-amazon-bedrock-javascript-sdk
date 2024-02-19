@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.mjs","sources":["../../../../src/utils/retry/constants.ts"],"sourcesContent":["// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\nexport const MAX_DELAY_MS = 5 * 60 * 1000;\n"],"names":[],"mappings":"AAAA;AACA;AACY,MAAC,YAAY,GAAG,CAAC,GAAG,EAAE,GAAG;;;;"}

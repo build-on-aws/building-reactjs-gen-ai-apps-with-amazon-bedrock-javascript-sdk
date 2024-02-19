@@ -1,0 +1,17 @@
+import { Amplify } from '@aws-amplify/core';
+import { fetchUserAttributes as fetchUserAttributes$1 } from './internal/fetchUserAttributes.mjs';
+
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+/**
+ * Fetches the current user attributes while authenticated.
+ *
+ * @throws - {@link GetUserException} - Cognito service errors thrown when the service is not able to get the user.
+ * @throws AuthTokenConfigException - Thrown when the token provider config is invalid.
+ */
+const fetchUserAttributes = () => {
+    return fetchUserAttributes$1(Amplify);
+};
+
+export { fetchUserAttributes };
+//# sourceMappingURL=fetchUserAttributes.mjs.map

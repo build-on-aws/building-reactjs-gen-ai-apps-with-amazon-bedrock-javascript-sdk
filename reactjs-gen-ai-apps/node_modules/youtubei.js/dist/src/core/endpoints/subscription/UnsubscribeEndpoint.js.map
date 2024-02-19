@@ -1,0 +1,1 @@
+{"version":3,"file":"UnsubscribeEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/subscription/UnsubscribeEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,2BAA2B,CAAC;AAEhD;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAAmC;IACvD,uBACE,UAAU,EAAE,OAAO,CAAC,WAAW,IAC5B;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;QACtB,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}

@@ -1,0 +1,6 @@
+@layer amplify.components {
+.amplify-scrollview {
+  display: block;
+  overflow: auto;
+}
+}
