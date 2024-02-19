@@ -1,13 +1,38 @@
 # Building Reactjs generative AI apps with Amazon Bedrock Javascript SDK
 
-In our continued learning about how to create applications using generative AI, we have been experimenting with conversational agents and have developed an application that can directly query the [Amazon Bedrock API ](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) using React and JavaScript, with no any additional layers. 
+Integrating generative AI into existing applications presents challenges. Many developers have limited experience in training foundations models, but the aim is to integrate generative AI capabilities with minimal code changes.
 
-This blog will teach you how to use [Amazon Cognito](https://aws.amazon.com/pm/cognito/) credentials to access the [Amazon Bedrock](https://aws.amazon.com/bedrock/) API in a react-based application with JavaScript and the CloudScape design system. Built and deployed using [AWS Amplify](https://aws.amazon.com/amplify/).
+To solve this, we created an application that integrates the power of generative AI with a call to the [Amazon Bedrock API](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) from a web application in React/JavaScript. With no middleware, eliminating the barrier of incorporating AI generation through minimal code integration.
+
+This blog will teach you how to use [Amazon Cognito](https://aws.amazon.com/pm/cognito/) credentials to access the [Amazon Bedrock](https://aws.amazon.com/bedrock/) API in a react-based application with JavaScript and the [CloudScape](https://cloudscape.design/) design system. Built and deployed using [AWS Amplify](https://aws.amazon.com/amplify/).
 
 ![Authentication](imagenes/auth.jpg)
 
 
 ## How Does This Application Work?
+
+In the [repository of this application](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/), you will find the code ready to deploy the backend and frontend.
+
+✅ **Backend:** made up with Amazon Cognito, with an [AWs Identity and Access ManagemenRole](https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_roles.html)(IAM Role) that contains the policy with the permissions to invoke Amazon Bedrock.
+
+```
+{ policyName: "amplify-permissions-custom-resources",
+            policyDocument: {
+                Version: "2012-10-17",
+                Statement: [
+                    {
+                        Resource: "*",
+                        Action: ["bedrock:InvokeModel*", "bedrock:List*", "bedrock:Retrieve*"],
+                        Effect: "Allow",
+                    }
+                ]
+            }
+        }
+```
+
+> Code: [IAM Role Code](https://github.com/elizabethfuentes12/building-a-gen-ai-personal-assistant/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
+
+✅ **Frontend:** made up React, JavaScript and the [CloudScape](https://cloudscape.design/)Scape design system.
 
 This application comprises 3 demos:
 
@@ -214,22 +239,41 @@ In the case of creating a new role, select **Amplify** as a service and select *
 
 ![Select trusted entity](imagenes/role_amplify.jpg)
 
+### Step 2 - Access to the AWS Amplify App:
 
- 
+Once the application has been deployed, go to the link in the application, which is located under the white box.
 
-Install/update [AWS Amplify](https://aws.amazon.com/amplify/getting-started/) on your computer or environment.
+![Amplify Deploy](imagenes/amplify_done.jpg)
 
+When you enter the link, the Sing In window will appear, so you must create a  [Amazon Cognito User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) User.
 
+![Sing In Window](imagenes/sing_in.jpg)
 
-## Test The React Generative AI Application With Amazon Bedrock Javascript SDK
+#### ✅ How To Create A User
 
-amplify init
-amplify status
-amplify push -y
-amplify -help
-amplify upgrade
-amplify push -y
-npm install && amplify publish -y
+In the App go to **Backend environments** and click on Authentication. 
+
+![Backend environments](imagenes/backend_env.jpg)
+
+Then, under Authentication, click **View in Cognito**:
+
+![View in Cognito](imagenes/view_in_cognito.jpg)
+
+In the **User Pool**, click the name of your user pool and **Create User**.
+
+[Create your user](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users.html?icmpid=docs_cognito_console_help_panel) and then sing in.
+
+> **Note:** You can create the user directly from the application by changing False `hideSignUp: false` in [App.jsx](https://github.com/elizabethfuentes12/building-a-gen-ai-personal-assistant/blob/main/reactjs-gen-ai-apps/src/App.jsx), but this can introduce a security flaw by giving anyone access to it.
+
+## Let's Try React Generative AI Application With Amazon Bedrock Javascript SDK
+
+Before you can use a foundation model in Amazon Bedrock, you must request access to it. Follow the step in [Add model access guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html). 
+
+Go to the application link and sign in with the user you created.
+
+🤖🚀 Try and test the app! 
+
+![Chat Q&A](imagenes/Q_A.jpg)
 
 
 ## Conclusion
@@ -238,21 +282,11 @@ In this blog, we discuss how to create a React application that can directly acc
 
 With this you can incorporate powerful Amazon Bedrock generative AI capabilities into new and existing React applications. This allows developers to focus on creating engaging conversation experiences, knowledge bases, and agent demos instead of managing authentication and authorization themselves.
 
-```
-* Change the title in this README
-* Edit your repository description on GitHub
+## 🚀 Some links for you to continue learning and building:
 
- 3902  amplify init
- 3903  amplify status
- 3904  amplify push -y
- 3905  amplify -help
- 3906  amplify upgrade
- 3907  amplify push -y
- 3908  npm install && amplify publish -y
-
- Como crear una knowledge base
-
-https://aws.amazon.com/es/blogs/developer/announcing-the-end-of-support-for-node-js-14-x-in-the-aws-sdk-for-javascript-v3/
+- [Amplify Workshops](https://workshops.aws/categories/Amplify)
+- [Amplify JavaScript Sample Applications](https://github.com/aws-amplify/amplify-js-samples)
+- [Actions and scenarios using SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/javascript_code_examples_categorized.html)
 
 ## Security
 
