@@ -34,7 +34,7 @@ In the [repository of this application](https://github.com/build-on-aws/building
 
 Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide][def] and can invoke API operations for users authentication and authorization. 
 
-> This permissions can be customized here: [IAM Role Code](https://github.com/elizabethfuentes12/building-a-gen-ai-personal-assistant/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
+> This permissions can be customized here: [IAM Role Code](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
 
 ✅ **Frontend:** a reactjs single page application (SPA) and  [CloudScape](https://cloudscape.design/) design system.
 
@@ -281,7 +281,7 @@ In the **User Pool**, click the name of your user pool and **Create User**.
 
 [Create your user](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users.html?icmpid=docs_cognito_console_help_panel) and then sing in.
 
-> **Note:** You can create the user directly from the application by changing False `hideSignUp: false` in [App.jsx](https://github.com/elizabethfuentes12/building-a-gen-ai-personal-assistant/blob/main/reactjs-gen-ai-apps/src/App.jsx), but this can introduce a security flaw by giving anyone access to it.
+> **Note:** You can create the user directly from the application by changing False `hideSignUp: false` in [App.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/App.jsx), but this can introduce a security flaw by giving anyone access to it.
 
 ## Let's Try React Generative AI Application With Amazon Bedrock Javascript SDK
 
