@@ -257,7 +257,7 @@ https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock
 
 7. Deploy your app.
 
-### Step 2 - Access to the AWS Amplify App:
+### Step 2 - Access to the App URL:
 
 Once the application has been deployed, go to the link in the application, which is located under the white box.
 
