@@ -1,6 +1,6 @@
 # Building reactjs Generative AI apps with Amazon Bedrock and AWS JavaScript SDK
 
-This article was written with [Enrique Rodriguez](https://github.com/ensamblador) 
+This article was written in colaboration [Enrique Rodriguez](https://github.com/ensamblador) 
 
 Integrating generative AI into existing applications presents challenges. Many developers have limited experience in training foundations models, but the aim is to integrate generative AI capabilities with minimal code changes.
 
@@ -15,7 +15,7 @@ In this blog you will learn how to use [Amazon Cognito](https://aws.amazon.com/p
 
 In the [repository of this application](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/), you will find the code ready to deploy the backend and frontend.
 
-✅ **Backend:** An Amazon Cognito User Pool and Identity Pool, with an [AWs Identity and Access ManagemenRole](https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_roles.html)(IAM Role) that contains the policy with the permissions to invoke Amazon Bedrock.
+✅ **Backend:** An Amazon Cognito User Pool and Identity Pool, with an [AWs Identity and Access Managemen Role](https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_roles.html) (IAM Role) that contains the policy with the permissions to invoke Amazon Bedrock.
 
 ```
 { policyName: "amplify-permissions-custom-resources",
@@ -32,7 +32,7 @@ In the [repository of this application](https://github.com/build-on-aws/building
         }
 ```
 
-Check "[Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) and can invoke API operations for users authentication and authorization. 
+Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide][def] and can invoke API operations for users authentication and authorization. 
 
 > This permissions can be customized here: [IAM Role Code](https://github.com/elizabethfuentes12/building-a-gen-ai-personal-assistant/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
 
@@ -52,12 +52,12 @@ import { BedrockAgentClient} from "@aws-sdk/client-bedrock-agent"
 import { BedrockAgentRuntimeClient} from "@aws-sdk/client-bedrock-agent-runtime"
 ```
 
-[Bedrock](https://aws.amazon.com/bedrock/) Amazon Bedrock is a fully managed service that offers a choice of high-performing foundation models (FMs) along with a broad set of capabilities that you need to build generative AI applications.
+[Amazon  Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that offers a choice of high-performing foundation models (FMs) along with a broad set of capabilities that you need to build generative AI applications.
 
 ### An instance of a Large Language Model
 
 To use a LLM in your application (for instance [anthropic.claude-instant-v1](https://aws.amazon.com/bedrock/claude/)) you create instance of [Bedrock Class from Langchain](https://js.langchain.com/docs/integrations/llms/bedrock). You need to specify 
-the region, streaming responses, and API credentials from the [user pool authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html). For model arguments, you specify the model to sample up to 1000 tokens and for more creative and freedom of generation using a temperature of 1.
+the region, streaming responses, and API credentials from the [user pool authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html). For model arguments, you specify the model to sample up to 1000 tokens and for more creative and freedom of generation use a temperature of 1.
 
 ```Javascript
 export const getModel = async () => {
@@ -327,3 +327,6 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
 
+
+
+[def]: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html
