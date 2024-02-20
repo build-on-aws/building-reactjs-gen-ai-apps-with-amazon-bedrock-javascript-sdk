@@ -229,7 +229,7 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query)
 ```
 
 
-## Let's Build React Generative AI Application With Amazon Bedrock and AWS Javascript SDK
+## Let's Deploy React Generative AI Application With Amazon Bedrock and AWS Javascript SDK
 
 ### Step 1 - Enable AWS Amplify Hosting:
 
