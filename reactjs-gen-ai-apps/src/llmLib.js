@@ -10,7 +10,7 @@ import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand, RetrieveCommand 
 export const getModel = async () => {
     const session = await fetchAuthSession(); //To get user credential from React
     const model = new Bedrock({
-        model: "anthropic.claude-instant-v1",
+        model: "anthropic.claude-v2:1",
         region: "us-east-1",
         streaming: true,
         credentials: session.credentials,
