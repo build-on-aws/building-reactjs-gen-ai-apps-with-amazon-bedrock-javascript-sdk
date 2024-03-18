@@ -43,11 +43,12 @@ export default () => {
                                     { type: 'link', text: `Amazon Bedrock Retrieve & Generate`, href: `/retrieveandgenerate` }
                                 ]
                             },
-                            //{ type: "divider" },
-                            //{type: "section", text: "Agents for Amazon Bedrock", items: [
-                            //    { type: 'link', text: `Sagemaker / Bedrock Support`, href: `/bedrockagent` },
-                            //]
-                        //}
+                            { type: "divider" },
+                            {
+                                type: "section", text: "Agents for Amazon Bedrock", items: [
+                                { type: 'link', text: `Agents`, href: `/bedrockagent` },
+                            ]
+                        }
                         ]
                     }
                     onFollow={event => {

@@ -12,6 +12,8 @@ import { getModel } from "./llmLib";
 import BedrockKBAndGenerate from "./BedrockKBAndGenerate"
 import BedrockKBRetrieve from "./BedrockKBRetrieve"
 
+import BedrockAgent from "./BedrockAgent"
+
 
 const App = ({ signOut, user }) => {
   const [llm, setllm] = useState({}) 
@@ -34,7 +36,8 @@ const App = ({ signOut, user }) => {
         { path: "llm", element: <Llm llm={llm} /> },
         { path: "chat", element: <Chat llm={llm} /> },
         { path: "retrieveandgenerate", element: <BedrockKBAndGenerate llm={llm} /> },
-        { path: "retrieve", element: <BedrockKBRetrieve llm={llm} /> }
+        { path: "retrieve", element: <BedrockKBRetrieve llm={llm} /> },
+        { path: "bedrockagent", element: <BedrockAgent llm={llm} /> },
 
       ]
     }
