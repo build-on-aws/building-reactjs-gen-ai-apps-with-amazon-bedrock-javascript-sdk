@@ -1,1 +1,0 @@
-{"version":3,"file":"ModifyChannelPreferenceEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/notification/ModifyChannelPreferenceEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,yCAAyC,CAAC;AAE9D;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAA+C;IACnE,uBACE,MAAM,EAAE,OAAO,CAAC,MAAM,IACnB;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}

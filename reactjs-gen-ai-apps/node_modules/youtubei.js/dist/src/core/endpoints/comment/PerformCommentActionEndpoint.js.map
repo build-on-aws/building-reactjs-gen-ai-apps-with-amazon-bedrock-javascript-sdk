@@ -1,1 +1,0 @@
-{"version":3,"file":"PerformCommentActionEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/comment/PerformCommentActionEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,iCAAiC,CAAC;AAEtD;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAA4C;IAChE,uBACE,OAAO,EAAE,OAAO,CAAC,OAAO,IACrB;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}

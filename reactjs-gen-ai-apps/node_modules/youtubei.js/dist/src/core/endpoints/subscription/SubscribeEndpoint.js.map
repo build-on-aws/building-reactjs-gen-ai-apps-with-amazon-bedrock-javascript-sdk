@@ -1,1 +1,0 @@
-{"version":3,"file":"SubscribeEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/subscription/SubscribeEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,yBAAyB,CAAC;AAE9C;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAAiC;IACrD,uBACE,UAAU,EAAE,OAAO,CAAC,WAAW,IAC5B;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;QACtB,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}
