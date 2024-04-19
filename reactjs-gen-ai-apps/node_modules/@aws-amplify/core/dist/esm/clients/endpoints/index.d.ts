@@ -1,1 +1,0 @@
-export { getDnsSuffix } from './getDnsSuffix';

@@ -1,1 +1,0 @@
-{"version":3,"file":"DeleteEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/playlist/DeleteEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,kBAAkB,CAAC;AAEvC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,IAAmC;IACvD,OAAO;QACL,UAAU,EAAE,IAAI,CAAC,WAAW;KAC7B,CAAC;AACJ,CAAC"}

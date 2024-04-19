@@ -1,1 +1,0 @@
-{"version":3,"file":"CreateEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/playlist/CreateEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,kBAAkB,CAAC;AAEvC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,IAAmC;IACvD,OAAO;QACL,KAAK,EAAE,IAAI,CAAC,KAAK;QACjB,GAAG,EAAE,IAAI,CAAC,GAAG;KACd,CAAC;AACJ,CAAC"}

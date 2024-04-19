@@ -1,1 +1,0 @@
-export { getClientInfo } from './getClientInfo';

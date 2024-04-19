@@ -1,1 +1,0 @@
-{"version":3,"file":"DislikeEndpoint.js","sourceRoot":"","sources":["../../../../../src/core/endpoints/like/DislikeEndpoint.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,IAAI,GAAG,eAAe,CAAC;AAEpC;;;;GAIG;AACH,MAAM,UAAU,KAAK,CAAC,OAA+B;IACnD,uBACE,MAAM,EAAE;YACN,OAAO,EAAE,OAAO,CAAC,MAAM,CAAC,QAAQ;SACjC,IACE;QACD,MAAM,EAAE,OAAO,CAAC,MAAM;KACvB,EACD;AACJ,CAAC"}
