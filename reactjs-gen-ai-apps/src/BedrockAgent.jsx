@@ -4,6 +4,8 @@ import { Box, Spinner, Header, Container, SpaceBetween, Textarea, Button} from "
 import MessageList from "./MessageList"
 import BedrockAgentLoader from "./BedrockAgentLoader";
 import {invokeBedrockAgent} from "./llmLib"
+import { buildContent } from "./messageHelpers"
+
 
 // create uuid
 const createId = () => {
@@ -18,10 +20,11 @@ const createId = () => {
 
 
 export default () => {
-    const [chat, setChat] = useState([]);
     const [value, setValue] = useState("")
     const [loading, setLoading] = useState(false)
     const [sessionId, setSessionId] = useState(createId())
+    const [messages, setMessages] = useState([])
+
 
     const childRef = useRef(null);
 
@@ -31,46 +34,47 @@ export default () => {
         setLoading(true)
         const currentAgent = childRef.current.getSelectedOption()
         console.log(currentAgent)
-        setChat(prev => [...prev, { text: value, sender: "user", name: "Demo User" }])
+        let content = await buildContent(value, [])
+        setValue("")
+        setMessages(prev => [...prev, { content: content, role: "user" }])
         const response  = await invokeBedrockAgent(sessionId, currentAgent.value.agentId, currentAgent.value.alias.agentAliasId, value)
 
-        let text = response
+        let responseContent = await buildContent(response, [])
 
-        setChat(prev => [...prev, { text: text, sender: "bot", name: "Demo Bot" }])
+        setMessages(prev => [...prev, { content: responseContent, role: "assistant" }])
         setLoading(false)
         setValue("")
     }
 
-    const processKeyUp = (keyCode) => { if (keyCode === 13) sendText() }
+
 
     return (
 
         <Container key={2} disableContentPaddings={false}
-            header={<Header variant="h2">Chat</Header>}>
+            header={<Header variant="h2">Conversacion</Header>}>
 
             <SpaceBetween size="xs">
                 <BedrockAgentLoader ref={childRef} key={1} />
 
-                <Box data-id="chat-window">
-                {
-                    chat.length ?
-                        <Container fitHeight>
-                            <MessageList messages={chat} />
-                            {loading ? <Spinner /> : null}
-                        </Container>
-                        : null
+                <Box data-id="chat-window" key={3}>
+                    {
+                        messages.length ?
+                            <Container fitHeight>
+                                <MessageList messages={messages} />
+                                {loading ? <Spinner /> : null}
+                            </Container>
+                            : null
 
-                }
+                    }
                 </Box>
                 <Textarea
                     fitHeight
                     placeholder="Escribe algo al agente..."
                     onChange={changeHandler}
-                    onKeyUp={event => processKeyUp(event.detail.keyCode)}
                     value={value}
                     disabled={loading}
                     inputMode="text" />
-                <Button fullWidth key={2} loading={loading} onClick={sendText} variant="primary" >Send</Button>
+                <Button fullWidth key={2} loading={loading} onClick={sendText} variant="primary" >Enviar</Button>
             </SpaceBetween>
 
 

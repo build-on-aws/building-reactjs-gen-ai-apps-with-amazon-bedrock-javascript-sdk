@@ -1,0 +1,29 @@
+{
+  "hally": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bedrockjavascript-hally-22087-authRole",
+      "UnauthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-bedrockjavascript-hally-22087-deployment",
+      "UnauthRoleName": "amplify-bedrockjavascript-hally-22087-unauthRole",
+      "StackName": "amplify-bedrockjavascript-hally-22087",
+      "StackId": "arn:aws:cloudformation:us-west-2:471112589762:stack/amplify-bedrockjavascript-hally-22087/917875f0-fe00-11ee-8f1c-06790b126ffb",
+      "AmplifyAppId": "d3gpj6uheji3y2"
+    },
+    "categories": {
+      "auth": {
+        "llmchatbotjs6f7265086f726508": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3gpj6uheji3y2",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "buildingreactjsgenai": {}
+      }
+    }
+  }
+}
