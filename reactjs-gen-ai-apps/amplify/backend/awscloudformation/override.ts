@@ -10,7 +10,7 @@ export function override(resources: AmplifyRootStackTemplate, amplifyProjectInfo
           Statement: [
             {
               Resource: "*",
-              Action: ["bedrock:InvokeModel*", "bedrock:List*", "bedrock:Retrieve*"],
+              Action: ["bedrock:Invoke*", "bedrock:List*", "bedrock:Retrieve*"],
               Effect: "Allow",
             }
           ]

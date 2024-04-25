@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-llmchatbotjs-dev-114530-authRole",
-      "UnauthRoleArn": "arn:aws:iam::891377009465:role/amplify-llmchatbotjs-dev-114530-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::891377009465:role/amplify-llmchatbotjs-dev-114530-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-llmchatbotjs-dev-114530-deployment",
-      "UnauthRoleName": "amplify-llmchatbotjs-dev-114530-unauthRole",
-      "StackName": "amplify-llmchatbotjs-dev-114530",
-      "StackId": "arn:aws:cloudformation:us-east-1:891377009465:stack/amplify-llmchatbotjs-dev-114530/dfd2eef0-cc10-11ee-a525-0efc92db4a2d",
-      "AmplifyAppId": "d374w2izf21zcf"
+      "AuthRoleName": "amplify-bedrockjavascript-hally-22087-authRole",
+      "UnauthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-bedrockjavascript-hally-22087-deployment",
+      "UnauthRoleName": "amplify-bedrockjavascript-hally-22087-unauthRole",
+      "StackName": "amplify-bedrockjavascript-hally-22087",
+      "StackId": "arn:aws:cloudformation:us-west-2:471112589762:stack/amplify-bedrockjavascript-hally-22087/917875f0-fe00-11ee-8f1c-06790b126ffb",
+      "AmplifyAppId": "d3gpj6uheji3y2"
     }
   },
   "auth": {
@@ -43,21 +43,20 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-llmchatbotjs-dev-114530-deployment/amplify-cfn-templates/auth/llmchatbotjs6f7265086f726508-cloudformation-template.json",
-        "logicalId": "authllmchatbotjs6f7265086f726508"
-      },
-      "lastPushTimeStamp": "2024-02-18T00:41:53.505Z",
       "output": {
-        "UserPoolId": "us-east-1_oamzocGsi",
-        "AppClientIDWeb": "7shv0coir2m2hf874pl51lb85v",
-        "AppClientID": "2q358niq8mugdigsrk2bl6tg8",
-        "IdentityPoolId": "us-east-1:29f25a09-f565-4937-9f2d-6ace497c89ef",
-        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:891377009465:userpool/us-east-1_oamzocGsi",
-        "IdentityPoolName": "llmchatbotjs6f726508_identitypool_6f726508__dev",
+        "UserPoolId": "us-west-2_1keiYN2UA",
+        "AppClientIDWeb": "7rbhscqfs7ev3iko97mjk94moo",
+        "AppClientID": "50s857vsmssbpthgs91kle6cgg",
+        "IdentityPoolId": "us-west-2:8c9a9773-1507-4009-b9c8-1681ae048467",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:471112589762:userpool/us-west-2_1keiYN2UA",
+        "IdentityPoolName": "llmchatbotjs6f726508_identitypool_6f726508__hally",
         "UserPoolName": "llmchatbotjs6f726508_userpool_6f726508"
       },
-      "lastPushDirHash": "Ltgk1yvyEZCR0Y3ME++i785CD1o="
+      "lastPushTimeStamp": "2024-04-20T02:59:46.245Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bedrockjavascript-hally-22087-deployment/amplify-cfn-templates/auth/llmchatbotjs6f7265086f726508-cloudformation-template.json",
+        "logicalId": "authllmchatbotjs6f7265086f726508"
+      }
     }
   },
   "hosting": {
@@ -65,31 +64,46 @@
       "providerPlugin": "awscloudformation",
       "service": "amplifyhosting",
       "type": "manual",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-llmchatbotjs-dev-114530-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
-        "logicalId": "hostingamplifyhosting"
-      },
-      "lastPushTimeStamp": "2024-02-18T00:41:53.508Z",
       "output": {},
-      "lastPushDirHash": "6eClP0cIsHdofCjJ9ushFd86v5o="
+      "lastPushTimeStamp": "2024-04-20T02:59:46.246Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bedrockjavascript-hally-22087-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      }
     }
   },
-  "parameters": {
-    "AMPLIFY_hosting_amplifyhosting_appId": {
-      "usedBy": [
+  "api": {
+    "buildingreactjsgenai": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
         {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
+          "category": "auth",
+          "resourceName": "llmchatbotjs6f7265086f726508",
+          "attributes": [
+            "UserPoolId"
+          ]
         }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_type": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
-        }
-      ]
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authllmchatbotjs6f7265086f726508"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "ps22ybeyo5hhhbdrabk27e43ee",
+        "GraphQLAPIEndpointOutput": "https://ngm6zb4hi5a7bcwrejbradhdju.appsync-api.us-west-2.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bedrockjavascript-hally-22087-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apibuildingreactjsgenai"
+      },
+      "lastPushTimeStamp": "2024-04-20T02:59:46.247Z",
+      "lastPushDirHash": "hu6aH7iMEnYpcJTUX03hFCs0EDI="
     }
   }
 }
