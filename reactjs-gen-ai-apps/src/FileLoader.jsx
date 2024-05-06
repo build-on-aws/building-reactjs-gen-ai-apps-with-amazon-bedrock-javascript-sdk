@@ -50,8 +50,8 @@ export default () => {
             </SpaceBetween> : null}
         >
             <FormField key={1}
-                label="Documentos (pdf, doc, txt)"
-                description="Elija documentos a consultar"
+                label="Documents (pdf, doc, txt)"
+                description="Choose documents to query"
             >
                 <FileUpload
                     onChange={handleOnChange}

@@ -69,7 +69,7 @@ export default () => {
                 </Box>
                 <Textarea
                     fitHeight
-                    placeholder="Escribe algo al agente..."
+                    placeholder="Write something to the agent..."
                     onChange={changeHandler}
                     value={value}
                     disabled={loading}

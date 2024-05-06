@@ -76,7 +76,7 @@ export default () => {
                 <Textarea
                     fitHeight
                     key={4}
-                    placeholder="Escribe algo al modelo..."
+                    placeholder="Write something to the model..."
                     onChange={({ detail }) => { setValue(detail.value) }}
                     onKeyUp={event => processKeyUp(event.detail.keyCode)}
                     value={value}

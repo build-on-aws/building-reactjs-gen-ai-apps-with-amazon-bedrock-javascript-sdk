@@ -32,7 +32,7 @@ In the [repository of this application](https://github.com/build-on-aws/building
         }
 ```
 
-Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide][def] and can invoke API operations for users authentication and authorization. 
+Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide][https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html] and can invoke API operations for users authentication and authorization. 
 
 > This permissions can be customized here: [IAM Role Code](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
 
@@ -40,8 +40,10 @@ Check ["Integrating Amazon Cognito authentication and authorization with web and
 
 This application comprises 2 demos:
 
--	Chat with Amazon Bedrock
+-	Chat with Amazon Bedrock: Multimodal Chatbot
+-   System Prompts
 -	Knowledge Bases for Amazon Bedrock
+-   Agents for Amazon Bedrock
 
 ![demos menu](imagenes/demos_menu.jpg)
 
@@ -54,17 +56,18 @@ import { BedrockAgentRuntimeClient} from "@aws-sdk/client-bedrock-agent-runtime"
 
 [Amazon  Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that offers a choice of high-performing foundation models (FMs) along with a broad set of capabilities that you need to build generative AI applications.
 
-### An instance of a Large Language Model
+### To select Large Language Model
 
-To use a LLM in your application (for instance [anthropic.claude-instant-v1](https://aws.amazon.com/bedrock/claude/)) you create instance of [Bedrock Class from Langchain](https://js.langchain.com/docs/integrations/llms/bedrock). You need to specify 
+To invoke a [LLM](https://aws.amazon.com/es/bedrock/claude/) in your application create instance of [Bedrock Class from Langchain](https://js.langchain.com/docs/integrations/llms/bedrock). You need to specify 
 the region, streaming responses, and API credentials from the [user pool authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html). For model arguments, you specify the model to sample up to 1000 tokens and for more creative and freedom of generation use a temperature of 1.
 
 ```Javascript
-export const getModel = async () => {
+export const getModel = async (modelId = "anthropic.claude-instant-v1") => {
     const session = await fetchAuthSession(); //Amplify helper to fetch current logged in user
+    let region = session.identityId.split(":")[0] //
     const model = new Bedrock({
-        model: "anthropic.claude-instant-v1", // model-id you can try others if you want
-        region: "us-east-1", // app region
+        model: modelId, // model-id you can try others if you want
+        region: region, // app region
         streaming: true, // this enables to get the response in streaming manner
         credentials: session.credentials, // the user credentials that allows to invoke bedrock service
         // try to limit to 1000 tokens for generation

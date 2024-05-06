@@ -15,9 +15,9 @@ export default () => {
 
     const childRef = useRef(null);
     const onSuccess = (e) => childRef.current.showMessage(
-        e, "success", "Exito", "Actualizado en la Base de datos!")
+        e, "success", "Success", "Updated in the Database!")
     const onError = (e) => childRef.current.showMessage(
-        e, "error", "Error", "Error actualizando!")
+        e, "error", "Error", "Error updating!")
 
     let { PromptId } = useParams()
 

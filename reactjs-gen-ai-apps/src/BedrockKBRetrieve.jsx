@@ -88,7 +88,7 @@ export default () => {
                     fitHeight
                     onBlur={childRef3?.current?.focus()}
                     ref={childRef3}
-                    placeholder="Escribe algo al modelo..."
+                    placeholder="Write something to the model..."
                     onChange={({ detail }) => {setValue(detail.value) }}
                     onKeyUp={event => processKeyUp(event.detail.keyCode)}
                     value={value}

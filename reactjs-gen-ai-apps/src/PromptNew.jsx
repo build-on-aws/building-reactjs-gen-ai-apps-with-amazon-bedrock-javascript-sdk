@@ -10,10 +10,10 @@ export default () => {
 
     const childRef = useRef(null);
     const onSuccess = (e) => {
-        childRef.current.showMessage(e, "success", "Exito", "Creado en la Base de datos!")
+        childRef.current.showMessage(e, "success", "Success", "Created in Database!")
         navigate(`/prompt/${e.id}`)
     }
-    const onError = (e) => childRef.current.showMessage(e, "error", "Error", "Error creando en la Base de datos!")
+    const onError = (e) => childRef.current.showMessage(e, "error", "Error", "Error creating in the Database!")
 
     return (
         <BasicNewForm ref={childRef} headerText={"New Prompt"}>

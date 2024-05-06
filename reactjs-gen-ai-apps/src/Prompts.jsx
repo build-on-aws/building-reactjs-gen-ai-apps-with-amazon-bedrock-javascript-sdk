@@ -15,8 +15,8 @@ export default () => {
         { id: "id", header: "id", cell: e => e.id, isRowHeader: false },
         { id: "name", header: "Name", cell: e => e.name, sortingField: "name", isRowHeader: true },
         { id: "prompt", header: "Prompt", cell: e => e.prompt, sortingField: "prompt", isRowHeader: true },
-        { id: "createdAt", header: "Creación", cell: e => formatDates(e.createdAt), sortingField: "createdAt", isRowHeader: true },
-        { id: "updatedAt", header: "Actualización", cell: e => formatDates(e.updatedAt), sortingField: "updatedAt", isRowHeader: true }
+        { id: "createdAt", header: "Creation", cell: e => formatDates(e.createdAt), sortingField: "createdAt", isRowHeader: true },
+        { id: "updatedAt", header: "Update", cell: e => formatDates(e.updatedAt), sortingField: "updatedAt", isRowHeader: true }
     ]
 
     const columnDisplay = [

@@ -16,7 +16,7 @@ export default forwardRef(({}, ref) => {
 
     useEffect(() => {
         getBedrockKnowledgeBases().then(kbs => {
-            const kbOptions = kbs.map(kb => ({ label: kb.name, value: kb.knowledgeBaseId, iconName: "settings", description: kb.description, tags: ["Estado: "+ kb.status, "Actualizado: " + formatDates(kb.updatedAt) ]})) 
+            const kbOptions = kbs.map(kb => ({ label: kb.name, value: kb.knowledgeBaseId, iconName: "settings", description: kb.description, tags: ["Status: "+ kb.status, "Update: " + formatDates(kb.updatedAt) ]})) 
             setKnowledgBases(kbOptions)
             setSelectedOption(kbOptions[0])
         })
