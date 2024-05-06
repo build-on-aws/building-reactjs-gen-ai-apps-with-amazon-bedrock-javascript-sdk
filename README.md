@@ -40,7 +40,7 @@ Check ["Integrating Amazon Cognito authentication and authorization with web and
 
 This application comprises 2 demos:
 
--	Chat with Amazon Bedrock.
+-	Chat with Amazon Bedrock Multimodal.
 -   System Prompts.
 -	Knowledge Bases for Amazon Bedrock.
 -   Agents for Amazon Bedrock.
@@ -58,8 +58,8 @@ import { BedrockAgentRuntimeClient} from "@aws-sdk/client-bedrock-agent-runtime"
 
 ### To select Large Language Model
 
-To invoke a [LLM](https://aws.amazon.com/es/bedrock/claude/) in your application create instance of [Bedrock Class from Langchain](https://js.langchain.com/docs/integrations/llms/bedrock). You need to specify 
-the region, streaming responses, and API credentials from the [user pool authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html). For model arguments, you specify the model to sample up to 1000 tokens and for more creative and freedom of generation use a temperature of 1.
+To invoke a [FM](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html) you need to specify 
+the region, streaming responses, and API credentials from the [user pool authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html). For model arguments, you specify the model to sample up to 1000 tokens and for more creative and freedom of generation use a temperature of 1. We do it with the `getModel` function of [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/llmLib.js)
 
 ```Javascript
 export const getModel = async (modelId = "anthropic.claude-instant-v1") => {
@@ -78,49 +78,99 @@ export const getModel = async (modelId = "anthropic.claude-instant-v1") => {
 };
 ```
 
-> **Code** --> [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/llmLib.js)
+To select the modelID first we Lists Amazon Bedrock foundation models with [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) on `getFMs` function of [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/llmLib.js) is used. Each FM creating company has its own way of invoking its own models, and this blog is only focusing on the multimodal models of Anthropic.
+
+```Javascript
+export const getFMs = async () => {
+    const session = await fetchAuthSession()
+    let region = session.identityId.split(":")[0]
+    const client = new BedrockClient({ region: region, credentials: session.credentials })
+    const input = { byProvider: "Anthropic", byOutputModality: "TEXT",byInferenceType: "ON_DEMAND"}
+    const command = new ListFoundationModelsCommand(input)
+    const response = await client.send(command)
+    return response.modelSummaries
+}
+```
+This code allows you to choose between [Antropic Claude 3](https://www.anthropic.com/news/claude-3-family) Sonnet or  Haiku.
+
+![demos menu](imagenes/demo-models.jpg)
 
 We'll walk you through each demo group to highlight their differences.
 
-### First: Chat With Amazon Bedrock
+### Chat With Amazon Bedrock Multimodal
 
 ![Chat With Amazon Bedrock](imagenes/chat_with_amazon_bedrock.jpg)
 
-Here you will talk directly with the Large Language Model (LLM) implemented by the Bedrock API through a [chain](https://js.langchain.com/docs/modules/chains/), in two different ways: 
-
-**- Chat Q&A:** Send prompt input request and the model answer with a generated output.
-
-![Chat Q&A](imagenes/chat_q_a.jpg)
-
-
-**- Chat with Memory:** Send prompt input request along with the with previous messages (if they exist) and the model responds with a generated output. This implementation uses local memory.
-
-![Chat with Memory](imagenes/chat_with_memory.jpg)
-
-This chat is built with a [ConversationChain](https://api.js.langchain.com/classes/langchain_chains.ConversationChain.html) with [Buffer Memory](https://js.langchain.com/docs/modules/memory/types/buffer_memory_chat) to store and get past dialogs. There are other types of memory, learn more in [Working With Your Live Data Using LangChain](https://community.aws/posts/working-with-your-live-data-using-langchain).  
-
-To set up this demo, it is necessary to instantiate the [Bedrock](https://js.langchain.com/docs/integrations/llms/bedrock) library for Lagnchain, [ConservationChain](https://js.langchain.com/docs/modules/chains/) to manage the conversation and [BufferMemory](https://js.langchain.com/docs/modules/memory/types/buffer) to invoke memory usage.
+[InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) is usging to invoke the Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body.
 
 ``` Javascript
-import { Bedrock } from "@langchain/community/llms/bedrock/web";
-import { ConversationChain} from "langchain/chains";
-import { BufferMemory } from "langchain/memory";
+const session = await fetchAuthSession()
+let region = session.identityId.split(":")[0]
+const client = new BedrockRuntimeClient({ region: region, credentials: session.credentials })
+const input = {
+        body: JSON.stringify(body),
+        contentType: "application/json",
+        accept: "application/json",
+        modelId: modelId
+    }
+const command = new InvokeModelWithResponseStreamCommand(input)
+const response = await client.send(command)
 ```
 
-```Javascript
-// create a memory object
-const memory = new BufferMemory({ humanPrefix: "H",  memoryKey:"chat_history"});
+In the [previous blog](https://community.aws/content/2cPcmjVFETxNNLUm1LNkqSOHasu/building-reactjs-generative-ai-apps-with-amazon-bedrock-and-aws-javascript-sdk), we referenced [two approaches to invoking](https://community.aws/content/2cPcmjVFETxNNLUm1LNkqSOHasu/building-reactjs-generative-ai-apps-with-amazon-bedrock-and-aws-javascript-sdk#first-chat-with-amazon-bedrock) the model - one focused on simply asking questions and receiving answers, and another for engaging in full conversations with the model. [Anthropic Claude 3](https://docs.anthropic.com/claude/reference/claude-on-amazon-bedrock) the conversation is handle with [The Messages API](https://docs.anthropic.com/claude/reference/messages_post): `messages=[{"role": "user", "content": content]`.
+
+Each input message must be an object with a `role` (user or assistant) and content. The `content` can be in either a single string or an array of content blocks, each block having its own designated `type` (text or image).
+
+- `type` equal `text`:
+
+```
+{"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
 ```
 
-**Why humanPrefix: "H"?**
+![chat_multimodal_text](imagenes/chat_multimodal_text.gif)
 
-[Anthropic Claude](https://aws.amazon.com/bedrock/claude/) has been trained to understand the prompt in terms of [Human: and Assistant:](https://docs.anthropic.com/claude/docs/human-and-assistant-formatting) indicators. For memory you use "H:" to identify the human part (instead of Human:) to prevent model confusion on where the last Human instrucition starts.
+- `type` equal `image`:
 
-The chain will look at `chat_history` key in the memory to get past dialogs, hence you use that key as memoryKey in BufferMemory.
+```
+{"role": "user", "content": [
+  {
+    "type": "image",
+    "source": {
+      "type": "base64",
+      "media_type": "image/jpeg",
+      "data": "/9j/4AAQSkZJRg...",
+    }
+  },
+  {"type": "text", "text": "What is in this image?"}
+]}
+```
+
+![chat_multimodal_image](imagenes/chat_multimodal_image.gif)
+
+This is an example of a body:
+
+```
+content = [
+        {"type": "image", "source": {"type": "base64",
+            "media_type": "image/jpeg", "data": content_image}},
+        {"type":"text","text":text}
+        ]
+body = {
+        "system": "You are an AI Assistant, always reply in the original user text language.",
+        "messages":content,"anthropic_version": anthropic_version,"max_tokens":max_tokens}
+```
+
+
+> 🖼️ Anthropic currently support the base64 source type for images, and the image/jpeg, image/png, image/gif, and image/webp media types. You can see the conversion of images to base64 for this app in `buildContent` function of [messageHelpers.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/messageHelpers.js). See [more input examples](https://docs.anthropic.com/claude/reference/messages-examples).
+
 
 ### Create and reuse prompt 
 
 ![demos menu](imagenes/demo-prompt.jpg)
+
+[The Messages API](https://docs.anthropic.com/claude/reference/messages_post) allows us to add context or instructions to the model through a [System Prompt](https://docs.anthropic.com/claude/docs/system-prompts)(system).
+
+
 
 ### Second: Knowledge Bases for Amazon Bedrock
 

@@ -233,6 +233,9 @@ Assistant:`
     return chain
 }
 
+/* It's querying the Amazon Bedrock service to fetch a list of available AI models 
+from Anthropic that can be used for text generation, based on the provided filters. 
+The results can then be used to select which model is most appropriate for the task.  */
 
 export const getFMs = async () => {
     const session = await fetchAuthSession()

@@ -48,4 +48,5 @@ amplifytools.xcconfig
 .vscode/
 .DS_Store
 *.csv
-
+team-provider-info.json
+amplify/team-provider-info.json

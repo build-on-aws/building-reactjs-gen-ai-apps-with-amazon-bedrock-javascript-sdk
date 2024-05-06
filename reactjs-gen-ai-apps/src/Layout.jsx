@@ -30,10 +30,10 @@ export default () => {
                     items={
                         [
                             {
-                                type: "section", text: "Amazon Bedrock Multimodal", items: [
+                                type: "section", text: "Chat With Amazon Bedrock Multimodal", items: [
 /*                                     { type: "link", href: "/llm", text: "Chat Q&A" },
                                     { type: "link", href: "/chat", text: "Chat with Memory" }, */
-                                    { type: "link", href: "/multimodal", text: "Multimodal Chatbot with Memory" },
+                                    { type: "link", href: "/multimodal", text: "Multimodal Chatbot" },
 
                                 ]
                             },

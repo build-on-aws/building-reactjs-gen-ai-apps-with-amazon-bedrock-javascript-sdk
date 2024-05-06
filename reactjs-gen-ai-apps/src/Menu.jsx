@@ -33,7 +33,7 @@ const Menu = ({ signOut, groups, ...user }) => {
       }}
       utilities={[
         {
-          type: "button", text: "Amazon Bedrock", 
+          type: "button", text: "Chat With Amazon Bedrock", 
           href: "https://aws.amazon.com/bedrock/", external: true, externalIconAriaLabel: " (opens in a new tab)"
         },
         {
