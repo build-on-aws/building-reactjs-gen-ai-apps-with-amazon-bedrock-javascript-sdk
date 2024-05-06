@@ -37,7 +37,7 @@ const loadImages = async (files) => {
     return images
 
 }
-
+// todo: add support for png
 export const buildContent = async (text, files=[]) => {
     let content = [{ type: "text", text: text }]
     if (files.length) {

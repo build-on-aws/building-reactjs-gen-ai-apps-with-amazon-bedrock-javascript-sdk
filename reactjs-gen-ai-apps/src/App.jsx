@@ -12,7 +12,6 @@ import BedrockKBRetrieve from "./BedrockKBRetrieve"
 import BedrockAgent from "./BedrockAgent"
 import MultiModalLLM from "./MultiModalLLM"
 
-
 const App = ({ signOut, user }) => {
 
 

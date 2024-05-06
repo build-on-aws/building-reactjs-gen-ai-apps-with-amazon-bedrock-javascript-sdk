@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import {PromptCreateForm}   from './ui-components';
 
+//todo: fix new prompt ID
+
 export default () => {
     let navigate = useNavigate()
 
