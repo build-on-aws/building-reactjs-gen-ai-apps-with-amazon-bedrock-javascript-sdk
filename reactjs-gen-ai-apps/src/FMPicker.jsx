@@ -10,6 +10,7 @@ const FMPicker = forwardRef(({ multimodal }, ref) => {
 
     useImperativeHandle(ref, () => ({
         getModelId() {
+            console.log(selectedId)
             return selectedId
         }
     }))
@@ -35,7 +36,7 @@ const FMPicker = forwardRef(({ multimodal }, ref) => {
         <FormField label="Model">
 
             <SegmentedControl selectedId={selectedId}
-            label="Modelos"
+            label="Models"
                 onChange={({ detail }) => setSelectedId(detail.selectedId)}
                 options={getOptions()} />
 </FormField>

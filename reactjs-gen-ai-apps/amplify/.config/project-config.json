@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "buildingreactjsgenai",
+  "projectName": "buildingreactjsgende",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {

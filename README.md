@@ -40,10 +40,10 @@ Check ["Integrating Amazon Cognito authentication and authorization with web and
 
 This application comprises 2 demos:
 
--	Chat with Amazon Bedrock: Multimodal Chatbot
--   System Prompts
--	Knowledge Bases for Amazon Bedrock
--   Agents for Amazon Bedrock
+-	Chat with Amazon Bedrock.
+-   System Prompts.
+-	Knowledge Bases for Amazon Bedrock.
+-   Agents for Amazon Bedrock.
 
 ![demos menu](imagenes/demos_menu.jpg)
 
@@ -117,6 +117,10 @@ const memory = new BufferMemory({ humanPrefix: "H",  memoryKey:"chat_history"});
 [Anthropic Claude](https://aws.amazon.com/bedrock/claude/) has been trained to understand the prompt in terms of [Human: and Assistant:](https://docs.anthropic.com/claude/docs/human-and-assistant-formatting) indicators. For memory you use "H:" to identify the human part (instead of Human:) to prevent model confusion on where the last Human instrucition starts.
 
 The chain will look at `chat_history` key in the memory to get past dialogs, hence you use that key as memoryKey in BufferMemory.
+
+### Create and reuse prompt 
+
+![demos menu](imagenes/demo-prompt.jpg)
 
 ### Second: Knowledge Bases for Amazon Bedrock
 

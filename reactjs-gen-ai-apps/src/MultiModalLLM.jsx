@@ -35,6 +35,7 @@ export default () => {
 
     const sendImageAndText = async () => {
         const currentModelId = modelPickerRef.current.getModelId()
+        console.log(currentModelId)
         const systemPrompt = promptPickerRef.current.getPrompt()
 
         setLoading(true)

@@ -1,15 +1,15 @@
 {
-  "hally": {
+  "brianna": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-bedrockjavascript-hally-22087-authRole",
-      "UnauthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::471112589762:role/amplify-bedrockjavascript-hally-22087-authRole",
-      "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-bedrockjavascript-hally-22087-deployment",
-      "UnauthRoleName": "amplify-bedrockjavascript-hally-22087-unauthRole",
-      "StackName": "amplify-bedrockjavascript-hally-22087",
-      "StackId": "arn:aws:cloudformation:us-west-2:471112589762:stack/amplify-bedrockjavascript-hally-22087/917875f0-fe00-11ee-8f1c-06790b126ffb",
-      "AmplifyAppId": "d3gpj6uheji3y2"
+      "AuthRoleName": "amplify-bedrockjavascript-brianna-6f666-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891377009465:role/amplify-bedrockjavascript-brianna-6f666-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891377009465:role/amplify-bedrockjavascript-brianna-6f666-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bedrockjavascript-brianna-6f666-deployment",
+      "UnauthRoleName": "amplify-bedrockjavascript-brianna-6f666-unauthRole",
+      "StackName": "amplify-bedrockjavascript-brianna-6f666",
+      "StackId": "arn:aws:cloudformation:us-east-1:891377009465:stack/amplify-bedrockjavascript-brianna-6f666/f7457760-f032-11ee-bc78-1282d03f18bd",
+      "AmplifyAppId": "d2k1z9ib5ja32r"
     },
     "categories": {
       "auth": {
@@ -17,12 +17,9 @@
       },
       "hosting": {
         "amplifyhosting": {
-          "appId": "d3gpj6uheji3y2",
+          "appId": "d2k1z9ib5ja32r",
           "type": "manual"
         }
-      },
-      "api": {
-        "buildingreactjsgenai": {}
       }
     }
   }
