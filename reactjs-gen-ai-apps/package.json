@@ -31,7 +31,6 @@
     "aws-amplify": "^6.0.28",
     "langchain": "^0.1.17",
     "marked": "^12.0.2",
-    "pdfjs-dist": "^4.0.379",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0"

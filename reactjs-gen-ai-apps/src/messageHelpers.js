@@ -33,7 +33,7 @@ const readAsDataURL = (file) => {
 
 const loadImages = async (files) => {
     let images = await Promise.all(files.map(f => { return readAsDataURL(f) }));
-    
+    console.log(images)
     return images
 
 }
@@ -45,7 +45,8 @@ export const buildContent = async (text, files=[]) => {
 
         const imgContent = b64images.map(b64i => { 
             let imageBytes = b64i.data.split(",")[1]
-            return { "type": "image", "source": { "type": "base64", "media_type": "image/jpeg", "data": imageBytes } }})
+            let media_type = b64i.type
+            return { "type": "image", "source": { "type": "base64", "media_type": media_type, "data": imageBytes } }})
 
 
         content = text=="" ? imgContent: [...imgContent, ...content]
