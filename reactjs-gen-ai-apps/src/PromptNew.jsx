@@ -3,7 +3,7 @@ import BasicNewForm from "./BasicNewForm"
 import {useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import {PromptCreateForm}   from './ui-components';
+import PromptCreateForm   from './ui-components/PromptCreateFormV2';
 
 //todo: fix new prompt ID
 
@@ -12,6 +12,7 @@ export default () => {
 
     const childRef = useRef(null);
     const onSuccess = (e) => {
+        console.log(e)
         childRef.current.showMessage(e, "success", "Success", "Created in Database!")
         navigate(`/prompt/${e.id}`)
     }

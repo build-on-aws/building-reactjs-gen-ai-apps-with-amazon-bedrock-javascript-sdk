@@ -1,6 +1,0 @@
-
-type Prompt @model  @auth(rules: [{ allow: owner }]) {
-  id: ID!
-  name: String!
-  prompt: String
-}
