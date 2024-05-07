@@ -3,7 +3,7 @@ import BasicNewForm from "./BasicNewForm"
 import {useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import PromptCreateForm   from './ui-components/PromptCreateFormV2';
+import PromptCreateForm   from './PromptCreateFormV2';
 
 //todo: fix new prompt ID
 

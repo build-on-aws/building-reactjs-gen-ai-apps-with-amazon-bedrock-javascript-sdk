@@ -7,9 +7,9 @@
 /* eslint-disable */
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
-import { fetchByPath, getOverrideProps, validateField } from "./utils";
+import { fetchByPath, getOverrideProps, validateField } from "./ui-components/utils";
 import { generateClient } from "aws-amplify/api";
-import { createPrompt } from "../graphql/mutations";
+import { createPrompt } from "./graphql/mutations";
 const client = generateClient();
 export default function PromptCreateForm(props) {
   const {
