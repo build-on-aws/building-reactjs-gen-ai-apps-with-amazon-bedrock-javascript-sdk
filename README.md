@@ -1,14 +1,23 @@
-# Building reactjs Generative AI apps with Amazon Bedrock and AWS JavaScript SDK
+# Building reactjs Generative AI apps with Amazon Bedrock and AWS JavaScript SDK 
+
 
 This article was written in colaboration [Enrique Rodriguez](https://github.com/ensamblador) 
+
+> Get ready to embark on an exciting journey as we combine the power of ReactJS, Amazon Bedrock, and the AWS JavaScript SDK to create a generative AI application that showcases the potential of minimal code integration and role-based customization.
+
+---
 
 Integrating generative AI into existing applications presents challenges. Many developers have limited experience in training foundations models, but the aim is to integrate generative AI capabilities with minimal code changes.
 
 To solve this, we created an application that integrates the power of generative AI with a call to the [Amazon Bedrock API](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) from a web application such [SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA) built with JavaScript and react framework. With no middleware, lowering the barrier for incorporating AI generation through minimal code integration.
 
-In this blog you will learn how to use [Amazon Cognito](https://aws.amazon.com/pm/cognito/) credentials and IAM Roles to invoke [Amazon Bedrock](https://aws.amazon.com/bedrock/) API in a react-based application with JavaScript and the [CloudScape](https://cloudscape.design/) design system. You will deploy all the resources and host the app using [AWS Amplify](https://aws.amazon.com/amplify/).
+Throughout this tutorial, you'll learn how to utilize [Amazon Cognito](https://aws.amazon.com/pm/cognito/) credentials and IAM Roles to securely access the [Amazon Bedrock](https://aws.amazon.com/bedrock/) API within your ReactJS application with the [CloudScape](https://cloudscape.design/) design system. We'll guide you through the process of deploying all the necessary resources and hosting the app using [AWS Amplify](https://aws.amazon.com/amplify/), streamlining the setup and deployment process.
 
-![Authentication](imagenes/auth.jpg)
+To enhance the flexibility and customization of the foundation model (FM), we'll demonstrate how to assign different roles using [System Prompt](https://docs.anthropic.com/claude/docs/system-prompts). By creating an [Amazon DynamoDB](https://aws.amazon.com/es/dynamodb/) table, you can store and retrieve various roles, enabling you to manage and access distinct System Prompts associated with each role you wish to assign to the FM. This centralized repository approach allows for dynamic role assignment and tailored AI responses based on the selected role.
+
+
+
+![Authentication](imagenes/diagram.jpg)
 
 
 ## How Does This Application Work?
@@ -32,7 +41,7 @@ In the [repository of this application](https://github.com/build-on-aws/building
         }
 ```
 
-Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide][https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html] and can invoke API operations for users authentication and authorization. 
+Check ["Integrating Amazon Cognito authentication and authorization with web and mobile apps" guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html) and can invoke API operations for users authentication and authorization. 
 
 > This permissions can be customized here: [IAM Role Code](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/amplify/backend/awscloudformation/override.ts)
 
@@ -171,8 +180,21 @@ body = {
 [The Messages API](https://docs.anthropic.com/claude/reference/messages_post) allows us to add context or instructions to the model through a [System Prompt](https://docs.anthropic.com/claude/docs/system-prompts)(system).
 
 
+By utilizing the System Prompt, we can assign the FM a specific role or provide it with prior instructions before feeding it the input. To enable the FM to take on multiple roles, we created a [frontend function](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/Prompt.jsx) that allows you to generate a System Prompt, store it in an [Amazon DynamoDB](https://aws.amazon.com/es/dynamodb/) table, and then select it when you want to assign that particular role to the FM.
 
-### Second: Knowledge Bases for Amazon Bedrock
+To facilitate communication between the frontend and the DynamoDB table, we employ a serveless GraphQL API through [AWS AppSync](https://aws.amazon.com/appsync/), that allows you to create and manage GraphQL APIs, which provide a flexible and efficient way to fetch and manipulate data from multiple sources through a single endpoint. ([AWS AppSync Tutorial: DynamoDB resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-dynamodb-resolvers.html)) 
+
+![demos menu](imagenes/prompt_diagram.jpg)
+
+Let's review an example of a prompt where we tell the FM that he is an expert in JavaScript:
+
+![demos menu](imagenes/prompt_javascript.jpg)
+
+In the following gif, the model provides code and detailed explanation, like an expert.
+
+![demos menu](imagenes/prompt_javascript.gif)
+
+### Knowledge Bases for Amazon Bedrock
 
 In this demo, you will ask questions to the [Knowledge Bases for Amazon Bedrock](https://aws.amazon.com/bedrock/knowledge-bases/) taking advantage of [retrieval augmented generation (RAG)](https://aws.amazon.com/what-is/retrieval-augmented-generation/). You must have at least one knowledge base created, do it by following [Create a knowledge base guide](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html).
 
@@ -198,6 +220,8 @@ export const getBedrockKnowledgeBases = async () => {
 }
 ```
 The [AmazonKnowledgeBaseRetriever](https://js.langchain.com/docs/integrations/retrievers/bedrock-knowledge-bases) Langchain class creates a retriever, an object capable to retrieve documents similar to a query from a knowledge base (in this case is a Knowledge Base from Bedrock)
+
+
 
 ```Javascript
 import { AmazonKnowledgeBaseRetriever } from "@langchain/community/retrievers/amazon_knowledge_base";
@@ -285,6 +309,7 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query)
 }
 ```
 
+### Agents for Amazon Bedrock
 
 ## Let's Deploy React Generative AI Application With Amazon Bedrock and AWS Javascript SDK
 
@@ -348,27 +373,17 @@ Go to the application link and sign in with the user you created.
 
 ### 🤖🚀 Try and test the app! 
 
-✅ Chat with Amazon Bedrock:  
-
-![Chat Q&A](imagenes/demo-q-a.gif)
-
-✅ Ask follow-up questions, and test the model's multi-language capabilities
-
-![Chat Memory](imagenes/demo-memory.gif)
-
-✅ Query the knowledge base using the LLM to deliver the best answer
-
-![Chat LLM](imagenes/demo-LLM.gif)
-
-✅ Finally consult the knowledge database directly without an intermediary
-
-![Chat LLM](imagenes/demo-bedrock-ret.gif)
-
 ## Conclusion
 
-In this blog, you created a React web application that can directly access the Amazon Bedrock API using Amazon Cognito for authentication. Integrating generative AI services like Bedrock into a React interface securely can be achieved by leveraging AWS managed services like Cognito and AWS IAM. 
+In this post, we demonstrated how you can build a React web application that directly accesses the Amazon Bedrock API using Amazon Cognito for secure authentication. By leveraging AWS managed services like Cognito and IAM, you can seamlessly integrate powerful generative AI capabilities into your React applications without the need for backend code.
 
-With this, you can incorporate powerful Amazon Bedrock generative AI capabilities into new and existing React applications. This allows developers to focus on creating engaging conversation and RAG experiences with managed knowledge service, without the need of backend code. It also show the power of the streaming responses, that improves user experience and wait times with conversational AI.
+This approach allows developers to focus on creating engaging conversational experiences while taking advantage of Amazon Bedrock's managed knowledge service. The streaming responses enhance the user experience by reducing wait times and enabling more natural interactions with conversational AI.
+
+Furthermore, we showed how you can assign multiple roles to the foundation model using System Prompts stored in an Amazon DynamoDB table. This centralized repository provides flexibility and versatility, allowing you to efficiently retrieve and assign distinct roles to the model based on your specific use case.
+
+By following the steps outlined in this post, you can unlock the potential of generative AI in your React applications. Whether you're building a new app from scratch or enhancing an existing one, Amazon Bedrock and the AWS JavaScript SDK make it easier than ever to incorporate cutting-edge AI capabilities.
+
+We encourage you to explore the code samples and resources provided to start building your own generative AI applications. If you have any questions or feedback, please leave a comment below. Happy coding!
 
 ## 🚀 Some links for you to continue learning and building:
 
