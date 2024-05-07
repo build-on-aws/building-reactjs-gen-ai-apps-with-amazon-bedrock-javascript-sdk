@@ -14,9 +14,6 @@ import MultiModalLLM from "./MultiModalLLM"
 
 const App = ({ signOut, user }) => {
 
-
-
-
   const router = createBrowserRouter([
 
     {
