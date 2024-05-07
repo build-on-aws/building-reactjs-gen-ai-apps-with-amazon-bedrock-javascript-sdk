@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "buildingreactjsgenai",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authllmchatbotjs6f7265086f726508",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
