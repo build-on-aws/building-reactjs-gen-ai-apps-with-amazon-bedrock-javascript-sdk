@@ -270,13 +270,16 @@ Assistant:`
 return chain
 }
 ```
+![demos menu](imagenes/demo-LLM.gif)
 
+> **Code** [BedrockKBRetrieve.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/BedrockKBRetrieve.jsx)
 
 **- Amazon Bedrock Retrieve & Generate:** 
 
 Here you will use a complete AWS Managed RAG service. There is no need for extra packages (Langchain) or increased complexity with prompts. You will use only one API Call to **BedrockAgentRuntimeClient**. Also the memory is managed by the service by using a **sessionId**. 
 
 ![Amazon Bedrock Retrieve & Generate](imagenes/retrieve_and_generate.jpg)
+
 
 Bedrock is initialized with [BedrockAgentRuntimeClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Class/BedrockAgentRuntimeClient/) and with [RetrieveAndGenerateCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Class/RetrieveAndGenerateCommand/) queries a knowledge base and a foundation model generates responses based on the retrieved results. In this demo Langchain is no needed.
 
@@ -310,10 +313,74 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query,
     return response
 }
 ```
+![demos menu](imagenes/demo-bedrock-ret.gif)
+
+> **Code** [BedrockKBAndGenerate.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/BedrockKBAndGenerate.jsx)
 
 ### Agents for Amazon Bedrock
 
-Coming Soon...
+An [Amazon Bedrock agent](https://aws.amazon.com/bedrock/agents/) is a software component that utilizes the AI models provided by the Amazon Bedrock service to deliver user-facing functionalities, such as chatbots, virtual assistants, or text generation tools. These agents can be customized and adapted to the specific needs of each application, providing a user interface for end-users to interact with the underlying AI capabilities. Bedrock agents handle the integration with the language models, processing user inputs, generating responses, and potentially other actions based on the output of the AI models.
+
+To integrate Amazon Bedrock agents into this application you must create one, follow the steps [Create an agent in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-create.html)
+
+In Amazon Bedrock, you can create a new version of your agent by [creating an alias](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-deploy.html) that points to the new version by default, aliases are listed with  [ListAgentAliasesCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentAliasesCommand/)( [llmLib.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/llmLib.js) ) :
+
+```JavaScript
+import { BedrockAgentClient, ListAgentAliasesCommand } from "@aws-sdk/client-bedrock-agent";
+
+const client = new BedrockAgentRuntimeClient({ region: region, credentials: session.credentials })
+
+export const getBedrockAgentAliases = async (client, agent) => {
+    const agentCommand = new ListAgentAliasesCommand({ agentId: agent.agentId })
+    const response = await client.send(agentCommand)
+    return response.agentAliasSummaries
+}
+```
+
+To sends a prompt for the agent to process and respond use [InvokeAgentCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeAgentCommand/)
+
+```JavaScript
+import { BedrockAgentRuntimeClient, InvokeAgentCommand } from "@aws-sdk/client-bedrock-agent-runtime";
+
+export const invokeBedrockAgent = async (sessionId, agentId, agentAlias, query) => {
+    const session = await fetchAuthSession()
+    let region = session.identityId.split(":")[0]
+
+    const client = new BedrockAgentRuntimeClient({ region: region, credentials: session.credentials })
+    const input = {
+        sessionId: sessionId,
+        agentId: agentId,
+        agentAliasId: agentAlias,
+        inputText: query
+    }
+
+    console.log(input)
+
+    const command = new InvokeAgentCommand(input)
+    const response = await client.send(command,)
+    console.log("response:", response)
+
+    let completion = ""
+
+    let decoder = new TextDecoder("utf-8")
+    for await (const chunk of response.completion) {
+        console.log("chunk:", chunk)
+        const text = decoder.decode(chunk.chunk.bytes)
+        completion += text
+        console.log(text)
+    }
+
+    return completion
+
+}
+```
+In the agent of this first gif, create a ticket for technical support:
+
+![demos menu](imagenes/demo-agent-create-ticket.gif)
+
+In the second gif the user asks the agent about the status of the ticket:
+
+![demos menu](imagenes/demo-agent-query-ticket.gif)
 
 ## Let's Deploy React Generative AI Application With Amazon Bedrock and AWS Javascript SDK
 
