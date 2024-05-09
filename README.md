@@ -3,7 +3,7 @@
 
 This article was written in colaboration [Enrique Rodriguez](https://github.com/ensamblador) 
 
-> Get ready to embark on an exciting journey as we combine the power of ReactJS, Amazon Bedrock, and the AWS JavaScript SDK to create a generative AI application that showcases the potential of minimal code integration and assitant role customization.
+> Get ready to embark on an exciting journey as we combine the power of Amazon Bedrock, ReactJS and the AWS JavaScript SDK to create a generative AI application with minimal integration code.
 
 ---
 
@@ -170,7 +170,7 @@ body = {
 ```
 
 
-> 🖼️ Anthropic currently support the base64 source type for images, and the image/jpeg, image/png, image/gif, and image/webp media types. You can see the conversion of images to base64 for this app in `buildContent` function of [messageHelpers.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/messageHelpers.js). See [more input examples](https://docs.anthropic.com/claude/reference/messages-examples).
+> 🖼️ Anthropic currently support the base64 source type for images, and the image/jpeg, image/png, image/gif, and image/webp media types. You can see the conversion of images to base64 for this app in `buildContent` function of [messageHelpers.js](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/helpers.js). See [more input examples](https://docs.anthropic.com/claude/reference/messages-examples).
 
 
 ### Create and reuse prompt 
@@ -272,7 +272,7 @@ return chain
 ```
 ![demos menu](imagenes/demo-LLM.gif)
 
-> **Code** [BedrockKBRetrieve.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/BedrockKBRetrieve.jsx)
+> **Code** [BedrockKBRetrieve.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/BedrockKBRetrieve.jsx)
 
 **- Amazon Bedrock Retrieve & Generate:** 
 
@@ -315,7 +315,7 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query,
 ```
 ![demos menu](imagenes/demo-bedrock-ret.gif)
 
-> **Code** [BedrockKBAndGenerate.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/reactjs-gen-ai-apps/src/BedrockKBAndGenerate.jsx)
+> **Code** [BedrockKBAndGenerate.jsx](https://github.com/build-on-aws/building-reactjs-gen-ai-apps-with-amazon-bedrock-javascript-sdk/blob/main/reactjs-gen-ai-apps/src/BedrockKBAndGenerate.jsx)
 
 ### Agents for Amazon Bedrock
 
