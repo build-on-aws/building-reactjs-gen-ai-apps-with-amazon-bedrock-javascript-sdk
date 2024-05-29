@@ -8,7 +8,7 @@ import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand, RetrieveCommand,
 import { BedrockClient, ListFoundationModelsCommand } from "@aws-sdk/client-bedrock"
 
 
-export const getModel = async (modelId = "anthropic.claude-instant-v1") => {
+export const getModel = async (modelId = "anthropic.claude-3-haiku-20240307-v1:0") => {
     const session = await fetchAuthSession()
     let region = session.identityId.split(":")[0]
     const model = new Bedrock({
