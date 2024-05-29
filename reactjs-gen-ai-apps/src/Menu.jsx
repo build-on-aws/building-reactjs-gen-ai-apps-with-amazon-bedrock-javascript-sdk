@@ -28,11 +28,15 @@ const Menu = ({ signOut, groups, ...user }) => {
 
       identity={{
         onFollow: (() => { navigate("/") }),
-        title: <div className='title'>Amazon Bedrock Javascript</div>,
+        title: <div className='title'>Volkswagen AI Document Assitant</div>,
+        logo: {
+          src: "https://cdn.worldvectorlogo.com/logos/volkswagen-logo-2019.svg",
+          alt: "Volkswagen"
+        }
 
       }}
       utilities={[
-        {
+ /*       {
           type: "button", text: "Chat With Amazon Bedrock", 
           href: "https://aws.amazon.com/bedrock/", external: true, externalIconAriaLabel: " (opens in a new tab)"
         },
@@ -70,7 +74,7 @@ const Menu = ({ signOut, groups, ...user }) => {
             },
           ]
 
-        },
+        },*/
         {
           type: "menu-dropdown",
           text: "You",
