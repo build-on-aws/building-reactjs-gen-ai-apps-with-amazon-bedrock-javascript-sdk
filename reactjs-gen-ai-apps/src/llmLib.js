@@ -21,7 +21,7 @@ export const getModel = async (modelId = "anthropic.claude-instant-v1") => {
     return model
 }
 
-export const invokeModelStreaming = async (body, modelId = "anthropic.claude-instant-v1", { callbacks }) => {
+export const invokeModelStreaming = async (body, modelId = "anthropic.claude-3-haiku-20240307-v1:0", { callbacks }) => {
     const session = await fetchAuthSession()
     let region = session.identityId.split(":")[0]
     const client = new BedrockRuntimeClient({ region: region, credentials: session.credentials })
@@ -187,7 +187,7 @@ export const retrieveBedrockKnowledgeBase = async (knowledgeBaseId, query) => {
         },
         retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
             vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
-                numberOfResults: 5, // required
+                numberOfResults: 10, // required
             },
         }
     }
