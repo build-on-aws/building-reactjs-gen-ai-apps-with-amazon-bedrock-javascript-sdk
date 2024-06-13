@@ -1,6 +1,6 @@
 # Building reactjs Generative AI apps with Amazon Bedrock and AWS JavaScript SDK 
 
-
+test
 This article was written in colaboration [Enrique Rodriguez](https://github.com/ensamblador) 
 
 > Get ready to embark on an exciting journey as we combine the power of Amazon Bedrock, ReactJS and the AWS JavaScript SDK to create a generative AI application with minimal integration code.
