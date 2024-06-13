@@ -51,7 +51,7 @@ export default () => {
     return (
 
         <Container key={2} disableContentPaddings={false}
-            header={<Header variant="h2">Conversacion</Header>}>
+            header={<Header variant="h2">Conversation</Header>}>
 
             <SpaceBetween size="xs">
                 <BedrockAgentLoader ref={childRef} key={1} />
@@ -74,7 +74,7 @@ export default () => {
                     value={value}
                     disabled={loading}
                     inputMode="text" />
-                <Button fullWidth key={2} loading={loading} onClick={sendText} variant="primary" >Enviar</Button>
+                <Button fullWidth key={2} loading={loading} onClick={sendText} variant="primary" >Submit</Button>
             </SpaceBetween>
 
 
