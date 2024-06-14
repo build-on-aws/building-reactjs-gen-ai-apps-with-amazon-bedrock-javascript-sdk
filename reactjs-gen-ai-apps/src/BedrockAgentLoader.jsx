@@ -29,11 +29,11 @@ export default forwardRef(({ }, ref) => {
             const agOptions = ags.map(ag => {
                 console.log(ag)
                 return ({
-                    label: `${ag.agentName} (ID: ${ag.agentId}) ${ag.agentStatus} Actualizado: ${formatDates(ag.updatedAt)}`,
+                    label: `${ag.agentName} (ID: ${ag.agentId}) ${ag.agentStatus} Updated: ${formatDates(ag.updatedAt)}`,
                     value: ag,
                     iconName: "gen-ai",
                     description: ag.status,
-                    tags: [ `Alias: ${ag.alias.agentAliasId} / ${ag.alias.agentAliasStatus}`, "Actualizado: " + formatDates(ag.alias.updatedAt)]
+                    tags: [ `Alias: ${ag.alias.agentAliasId} / ${ag.alias.agentAliasStatus}`, "Updated: " + formatDates(ag.alias.updatedAt)]
                 })
             })
             setAgents(agOptions)
