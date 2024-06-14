@@ -68,7 +68,7 @@ const BotMessage = ({ msg }) => {
     return (<Grid
         disableGutters
         gridDefinition={[{ colspan: 11, }, { colspan: 7, }]}>
-        <Container variant="stacked" data-sender="bot" header={<strong>Respuesta LLM</strong>}>
+        <Container variant="stacked" data-sender="bot" header={<strong>Response from the LLM</strong>}>
             {contentJSX}
         </Container>
     </Grid>)
